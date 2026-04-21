@@ -52,7 +52,7 @@ const createTask= async (req, res) => {
 
 const updateTask= async (req, res) => {
   try {
-    const { id } = req.body;
+    const { id } = req.params;
     const { title, description ,status } = req.body;
     const updateTask = await pool.query(
       'UPDATE tasks SET title = $1, description = $2, status = $3, updated_at = CURRENT_TIMESTAMP WHERE id = $4 RETURNING *',
